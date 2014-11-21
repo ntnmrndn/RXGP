@@ -2,8 +2,8 @@
 //  RXGPTests.swift
 //  RXGPTests
 //
-//  Created by Antoine Marandon on 09/08/2014.
-//  Copyright (c) 2014 edupad. All rights reserved.
+//  Created by Antoine Marandon on 22/11/2014.
+//
 //
 
 import UIKit

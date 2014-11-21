@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "717890DE19962A7C00723011"
+               BlueprintIdentifier = "71FC118F1A1FC4E3006C976C"
                BuildableName = "RXGP.app"
                BlueprintName = "RXGP"
                ReferencedContainer = "container:RXGP.xcodeproj">
@@ -22,13 +22,13 @@
          </BuildActionEntry>
          <BuildActionEntry
             buildForTesting = "YES"
-            buildForRunning = "NO"
+            buildForRunning = "YES"
             buildForProfiling = "NO"
             buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
+            buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "717890F019962A7C00723011"
+               BlueprintIdentifier = "71FC11A41A1FC4E3006C976C"
                BuildableName = "RXGPTests.xctest"
                BlueprintName = "RXGPTests"
                ReferencedContainer = "container:RXGP.xcodeproj">
@@ -46,7 +46,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "717890F019962A7C00723011"
+               BlueprintIdentifier = "71FC11A41A1FC4E3006C976C"
                BuildableName = "RXGPTests.xctest"
                BlueprintName = "RXGPTests"
                ReferencedContainer = "container:RXGP.xcodeproj">
@@ -56,7 +56,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "717890DE19962A7C00723011"
+            BlueprintIdentifier = "71FC118F1A1FC4E3006C976C"
             BuildableName = "RXGP.app"
             BlueprintName = "RXGP"
             ReferencedContainer = "container:RXGP.xcodeproj">
@@ -68,14 +68,14 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "717890DE19962A7C00723011"
+            BlueprintIdentifier = "71FC118F1A1FC4E3006C976C"
             BuildableName = "RXGP.app"
             BlueprintName = "RXGP"
             ReferencedContainer = "container:RXGP.xcodeproj">
@@ -93,7 +93,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "717890DE19962A7C00723011"
+            BlueprintIdentifier = "71FC118F1A1FC4E3006C976C"
             BuildableName = "RXGP.app"
             BlueprintName = "RXGP"
             ReferencedContainer = "container:RXGP.xcodeproj">

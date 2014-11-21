@@ -4,11 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Copy of RXGP.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
-		</dict>
 		<key>RXGP.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -17,12 +12,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>717890DE19962A7C00723011</key>
+		<key>71FC118F1A1FC4E3006C976C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>717890F019962A7C00723011</key>
+		<key>71FC11A41A1FC4E3006C976C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

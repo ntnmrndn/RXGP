@@ -2,9 +2,10 @@
 //  ViewController.swift
 //  RXGP
 //
-//  Created by Antoine Marandon on 09/08/2014.
-//  Copyright (c) 2014 edupad. All rights reserved.
+//  Created by Antoine Marandon on 22/11/2014.
 //
+//
+
 
 import UIKit
 import CoreLocation
@@ -81,7 +82,7 @@ class ViewController: UIViewController,  CLLocationManagerDelegate  {
     }
 
     func appendDataToExportFile(data: NSData) {
-        // NSFileManager().createFileAtPath(outputFile, contents: nil, attributes: nil)
+        NSFileManager().createFileAtPath(outputFile, contents: nil, attributes: nil)
         var fileHandler: AnyObject! = NSFileHandle(forUpdatingAtPath: outputFile)
 
         fileHandler.seekToEndOfFile()
@@ -96,8 +97,8 @@ class ViewController: UIViewController,  CLLocationManagerDelegate  {
         self.view.window?.addSubview(flashView);
         UIView.animateWithDuration(0.5, animations: { () -> Void in
             flashView.alpha = 0
-        }) { (Bool) -> Void in
-            flashView.removeFromSuperview()
+            }) { (Bool) -> Void in
+                flashView.removeFromSuperview()
         }
         let jsonObject: AnyObject = [
             "time" : dateFormater.stringFromDate(location.timestamp),
@@ -122,6 +123,7 @@ class ViewController: UIViewController,  CLLocationManagerDelegate  {
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
         self.view.backgroundColor = UIColor.blueColor()
     }
-
+    
 }
+
 
