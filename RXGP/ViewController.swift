@@ -10,21 +10,21 @@ import UIKit
 import CoreLocation
 
 class ViewController: UIViewController,  CLLocationManagerDelegate  {
-    let locationManager = CLLocationManager();
+    let locationManager = CLLocationManager()
     var dateFormater = NSDateFormatter()
-    var previousySavedLocation : CLLocation?;
+    var previouslySavedLocation : CLLocation?
     let outputFile = (NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory,NSSearchPathDomainMask.UserDomainMask , true).first as String).stringByAppendingPathComponent("locations.json")
     override func viewDidLoad() {
         super.viewDidLoad()
         //        NSFileManager().createFileAtPath(outputFile, contents: nil, attributes: nil)
-        dateFormater.setDateFormat("dd-MM-yyyy HH:mm")
+        dateFormater.dateFormat = "dd-MM-yyyy HH:mm"
         locationManager.delegate = self
         locationManager.startUpdatingLocation()
         self.view.backgroundColor = UIColor.brownColor()
     }
 
     func updateViewForLastLocation(location: CLLocation) {
-        let locationTime = -location.timestamp.timeIntervalSinceNow()
+        let locationTime = -location.timestamp.timeIntervalSinceNow
         var alpha : CGFloat
         if (locationTime < 60) { // 1 min
             alpha = 1
@@ -41,8 +41,8 @@ class ViewController: UIViewController,  CLLocationManagerDelegate  {
         } else  {
             alpha = 0.15
         }
-//        println("\(location.timestamp.timeIntervalSinceNow())")
-//        println("\(location.coordinate.latitude) : \(location.coordinate.longitude) - \(location.altitude) +-  \(location.horizontalAccuracy) : \(location.horizontalAccuracy) ")
+        println("\(location.timestamp.timeIntervalSinceNow)")
+        println("\(location.coordinate.latitude) : \(location.coordinate.longitude) - \(location.altitude) +-  \(location.horizontalAccuracy) : \(location.horizontalAccuracy) ")
         if location.horizontalAccuracy > 1_000_000 { // 1000km
             self.view.backgroundColor = UIColor(red: 1, green:0, blue: 0, alpha: alpha)
         } else if (location.horizontalAccuracy > 100_000) {
@@ -66,28 +66,30 @@ class ViewController: UIViewController,  CLLocationManagerDelegate  {
         if (location.horizontalAccuracy > 100_000) { // over 100 km  ...
             return false;
         }
-        if (previousySavedLocation == nil) {
+        if (self.previouslySavedLocation == nil) {
             return true;
         }
-        if (previousySavedLocation!.horizontalAccuracy - location.horizontalAccuracy > 0) { // we lost accuracy
-            return location.timestamp.timeIntervalSinceDate(previousySavedLocation?.timestamp) > 60 * 30 // last update was 30 min ago let's grab the new one anyway
+        if (previouslySavedLocation!.horizontalAccuracy - location.horizontalAccuracy > 0) { // we lost accuracy
+            let previousTimestamp = previouslySavedLocation?.timestamp
+            return location.timestamp.timeIntervalSinceDate(previousTimestamp!) > 60 * 30
         }
-        if (previousySavedLocation!.horizontalAccuracy - location.horizontalAccuracy > 0) { //accuracy improved
-            return previousySavedLocation?.distanceFromLocation(location) > 50; // over 50m difference == we save
+        if (self.previouslySavedLocation!.horizontalAccuracy - location.horizontalAccuracy > 0) { //accuracy improved
+            return previouslySavedLocation?.distanceFromLocation(location) > 50; // over 50m difference == we save
         } else {
             return false;
         }
     }
 
     func appendDataToExportFile(data: NSData) {
-        var fileHandler: AnyObject! = NSFileHandle.fileHandleForUpdatingAtPath(outputFile)
+        var fileHandler: AnyObject! = NSFileHandle(forUpdatingAtPath: outputFile)
+
         fileHandler.seekToEndOfFile()
         fileHandler.writeData(data)
         fileHandler.closeFile()
     }
 
     func saveLocation(location: CLLocation) {
-        self.previousySavedLocation = location;
+        previouslySavedLocation! = location;
         var flashView = UIView(frame: self.view.frame);
         flashView.backgroundColor = UIColor.whiteColor();
         self.view.window?.addSubview(flashView);
@@ -104,7 +106,7 @@ class ViewController: UIViewController,  CLLocationManagerDelegate  {
             "accuracy" : location.horizontalAccuracy,
         ]
         let data = NSJSONSerialization.dataWithJSONObject(jsonObject, options: NSJSONWritingOptions(0), error: nil)
-        appendDataToExportFile(data)
+        appendDataToExportFile(data!)
     }
 
 
