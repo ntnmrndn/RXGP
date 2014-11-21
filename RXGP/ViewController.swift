@@ -81,6 +81,7 @@ class ViewController: UIViewController,  CLLocationManagerDelegate  {
     }
 
     func appendDataToExportFile(data: NSData) {
+        // NSFileManager().createFileAtPath(outputFile, contents: nil, attributes: nil)
         var fileHandler: AnyObject! = NSFileHandle(forUpdatingAtPath: outputFile)
 
         fileHandler.seekToEndOfFile()
@@ -89,7 +90,7 @@ class ViewController: UIViewController,  CLLocationManagerDelegate  {
     }
 
     func saveLocation(location: CLLocation) {
-        previouslySavedLocation! = location;
+        previouslySavedLocation = location;
         var flashView = UIView(frame: self.view.frame);
         flashView.backgroundColor = UIColor.whiteColor();
         self.view.window?.addSubview(flashView);
