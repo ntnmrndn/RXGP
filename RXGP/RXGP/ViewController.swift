@@ -14,7 +14,7 @@ class ViewController: UIViewController,  CLLocationManagerDelegate  {
     let locationManager = CLLocationManager()
     var dateFormater = NSDateFormatter()
     var previouslySavedLocation : CLLocation?
-    let outputFile = (NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory,NSSearchPathDomainMask.UserDomainMask , true).first as String).stringByAppendingPathComponent("locations.json")
+    var outputFile = (NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory,NSSearchPathDomainMask.UserDomainMask , true).first as! String).stringByAppendingPathComponent("locations.json")
     override func viewDidLoad() {
         super.viewDidLoad()
         //        NSFileManager().createFileAtPath(outputFile, contents: nil, attributes: nil)
@@ -113,7 +113,7 @@ class ViewController: UIViewController,  CLLocationManagerDelegate  {
 
 
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        let location : CLLocation = locations.last as CLLocation!
+        let location = locations.last as! CLLocation!
         self.updateViewForLastLocation(location)
         if (self.shouldSaveLocation(location)) {
             saveLocation(location)
